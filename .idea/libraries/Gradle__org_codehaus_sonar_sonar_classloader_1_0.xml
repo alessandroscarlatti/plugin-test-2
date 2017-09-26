@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.codehaus.sonar:sonar-classloader:1.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.sonar/sonar-classloader/1.0/c8900fdb179318a4ab85fa5d005edbf85e6614e1/sonar-classloader-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.sonar/sonar-classloader/1.0/4abce1dcf2ea1aa085f35a8ce43563a54cc993fb/sonar-classloader-1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

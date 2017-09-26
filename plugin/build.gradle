@@ -1,0 +1,36 @@
+apply plugin: 'groovy'
+apply plugin: 'java-gradle-plugin'
+
+group 'com.scarlatti'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    ork
+    compile.extendsFrom ork
+}
+
+dependencies {
+    ork 'org.codehaus.groovy:groovy-all:2.4.7'
+    ork 'com.mashape.unirest:unirest-java:1.4.9'
+// https://mvnrepository.com/artifact/org.springframework/spring-core
+    ork group: 'org.codehaus.sonar', name: 'sonar-classloader', version: '1.0'
+
+}
+
+String pluginJarName = 'ork-plugin.jar'
+
+jar {
+    from configurations.ork.asFileTree.files.collect { zipTree(it) }
+    archiveName = pluginJarName
+}
+
+task installJarInTestProject (type: Copy, dependsOn: build) {
+    group = 'build'
+    from "build/libs/$pluginJarName"
+    into "../app/build/libs"
+}

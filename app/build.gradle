@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        flatDir dirs: 'build/libs'
+    }
+    dependencies {
+        classpath 'org.apache.httpcomponents:httpclient:4.3.6'
+        classpath 'com.scarlatti.ork:ork-plugin'
+        classpath gradleApi()
+    }
+}
+
+group 'com.scarlatti'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'groovy'
+apply plugin: 'ork'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+    flatDir dirs: 'build/libs'
+}
+
+configurations {
+    deploy
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.7'
+    deploy 'com.scarlatti.ork:ork-plugin'
+}
+
+ork {
+    penguinName = project.properties.PENGUIN_NAME
+    when = project.properties.WHEN
+}
+
+special {
+    println project.buildscript.configurations.getByName('classpath').asList()
+}
